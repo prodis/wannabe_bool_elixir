@@ -4,7 +4,7 @@
 [![Docs](https://img.shields.io/badge/hex-docs-542581.svg)](https://hexdocs.pm/wannabe_bool)
 [![Build Status](https://travis-ci.org/prodis/wannabe_bool_elixir.svg?branch=master)](https://travis-ci.org/prodis/wannabe_bool_elixir)
 [![Coverage Status](https://coveralls.io/repos/github/prodis/wannabe_bool_elixir/badge.svg?branch=master)](https://coveralls.io/github/prodis/wannabe_bool_elixir?branch=master)
-[![License](https://img.shields.io/hexpm/l/wannabe_bool.svg)](LICENSE)
+[![License](https://img.shields.io/hexpm/l/wannabe_bool.svg)](https://github.com/prodis/wannabe_bool_elixir/blob/master/LICENSE)
 
 If `Atom`, `String` (`BitString`), `Integer` and `Float` values wanna be a boolean value, they can using `to_boolean/1` function.
 
