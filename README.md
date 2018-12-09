@@ -6,7 +6,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/prodis/wannabe_bool_elixir/badge.svg?branch=master)](https://coveralls.io/github/prodis/wannabe_bool_elixir?branch=master)
 [![License](https://img.shields.io/hexpm/l/wannabe_bool.svg)](LICENSE)
 
-If `Atom`, `BitString`, `Integer` and `Float` values wanna be a boolean value, they can using `to_boolean/1` function.
+If `Atom`, `String` (`BitString`), `Integer` and `Float` values wanna be a boolean value, they can using `to_boolean/1` function.
 
 ## Installation
 
@@ -20,13 +20,172 @@ end
 
 ## Usage
 
-TODO
+The `is_boolean/1` function is implemented for `Atom`, `BitString`, `Integer` and `Float` types.
 
+You can use `is_boolean/1` function importing `WannabeBool` protocol:
 ```elixir
+iex> import WannabeBool
 iex>
+iex> to_boolean("true")
+true
 ```
 
-Consult the full documentation at [https://hexdocs.pm/wannabe_bool](https://hexdocs.pm/wannabe_bool).
+Or calling it in `WannabeBool` protocol directly:
+```elixir
+iex> WannabeBool.to_boolean("true")
+true
+```
+
+## Truthy values
+
+Each type has its own "truthy values".
+
+### BitString (String)
+
+Returns `true` if the given string is one of these values: `"t"`, `"true"`, `"on"`, `"y"`, `"yes"`, `"1"`.
+
+Otherwise, returns `false`.
+
+Trailling spaces and letter cases are ignored.
+
+#### Examples
+
+```elixir
+iex> to_boolean("t")
+true
+iex> to_boolean("T")
+true
+iex> to_boolean("true")
+true
+iex> to_boolean("TRUE")
+true
+iex> to_boolean("on")
+true
+iex> to_boolean("ON")
+true
+iex> to_boolean("y")
+true
+iex> to_boolean("yes")
+true
+iex> to_boolean("YES")
+true
+iex> to_boolean("1")
+true
+iex> to_boolean(" t ")
+true
+iex> to_boolean(" T ")
+true
+iex> to_boolean(" true ")
+true
+iex> to_boolean(" TRUE ")
+true
+iex> to_boolean(" on ")
+true
+iex> to_boolean(" ON ")
+true
+iex> to_boolean(" y ")
+true
+iex> to_boolean("Y")
+true
+iex> to_boolean(" Y ")
+true
+iex> to_boolean(" yes ")
+true
+iex> to_boolean(" YES ")
+true
+iex> to_boolean(" 1 ")
+true
+
+iex> to_boolean("false")
+false
+iex> to_boolean("whatever")
+false
+iex> to_boolean("")
+false
+```
+
+### Atom
+
+The same as `my_atom |> to_string() |> to_boolean()`.
+
+`true` and `false` obvisouly returns `true` and `false` respectively. :)
+
+`nil` returns `false`.
+
+#### Examples
+
+```elixir
+iex> to_boolean(:"t")
+true
+iex> to_boolean(:"true")
+true
+iex> to_boolean(:"on")
+true
+iex> to_boolean(:"y")
+true
+iex> to_boolean(:"yes")
+true
+iex> to_boolean(:"1")
+true
+
+iex> to_boolean(:"false")
+false
+iex> to_boolean(:"whatever")
+false
+iex> to_boolean(:"")
+false
+
+iex> to_boolean(true)
+true
+iex> to_boolean(false)
+false
+iex> to_boolean(nil)
+false
+```
+
+### Integer
+
+Returns `false` if the given integer is zero. Otherwise, returns `true`.
+
+#### Examples
+
+```elixir
+iex> to_boolean(0)
+false
+
+iex> to_boolean(1)
+true
+iex> to_boolean(2)
+true
+iex> to_boolean(-1)
+true
+iex> to_boolean(-2)
+true
+```
+
+### Float
+
+Returns `false` if the given float is zero. Otherwise, returns `true`.
+
+#### Examples
+
+```elixir
+iex> to_boolean(0.0)
+false
+
+iex> to_boolean(0.1)
+true
+iex> to_boolean(1.0)
+true
+iex> to_boolean(-0.1)
+true
+iex> to_boolean(-1.0)
+true
+```
+
+## Full documentation
+
+The full documentation is available at [https://hexdocs.pm/wannabe_bool](https://hexdocs.pm/wannabe_bool).
 
 ## Contributing
 
