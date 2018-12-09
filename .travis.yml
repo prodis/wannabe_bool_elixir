@@ -1,0 +1,19 @@
+language: elixir
+
+elixir:
+  - 1.7.4
+
+otp_release:
+  - 21.1
+
+env:
+  global:
+    - MIX_ENV=test
+
+script:
+  - mix compile
+  - mix format --check-formatted
+  - mix coveralls.travis --trace
+  - mix credo
+
+sudo: false
