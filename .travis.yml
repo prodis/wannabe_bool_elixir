@@ -11,6 +11,7 @@ env:
     - MIX_ENV=test
 
 script:
+  - mix deps.compile
   - mix compile
   - mix format --check-formatted
   - mix coveralls.travis --trace
