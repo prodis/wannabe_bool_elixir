@@ -183,6 +183,17 @@ iex> to_boolean(-1.0)
 true
 ```
 
+### Other types
+
+For other not implemented types a `Protocol.UndefinedError` is raised.
+
+#### Example
+
+```elixir
+iex> to_boolean([])
+** (Protocol.UndefinedError) protocol WannabeBool not implemented for []. This protocol is implemented for: Atom, BitString, Float, Integer
+```
+
 ## Full documentation
 
 The full documentation is available at [https://hexdocs.pm/wannabe_bool](https://hexdocs.pm/wannabe_bool).
