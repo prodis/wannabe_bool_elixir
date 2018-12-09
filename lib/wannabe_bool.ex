@@ -13,28 +13,21 @@ defprotocol WannabeBool do
   ## Examples
 
       iex> import WannabeBool
-
+      iex>
       iex> to_boolean("true")
       true
-
       iex> to_boolean("false")
       false
-
       iex> to_boolean(:t)
       true
-
       iex> to_boolean(:f)
       false
-
       iex> to_boolean(1)
       true
-
       iex> to_boolean(0)
       false
-
       iex> to_boolean(1.0)
       true
-
       iex> to_boolean(0.0)
       false
 
