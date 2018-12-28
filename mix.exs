@@ -12,6 +12,7 @@ defmodule WannabeBool.MixProject do
       elixir: "~> 1.7",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
+      dialyzer: dialyzer(),
       description: description(),
       package: package(),
       docs: docs(),
@@ -34,8 +35,9 @@ defmodule WannabeBool.MixProject do
   defp deps do
     [
       {:credo, "~> 1.0.0", only: [:dev, :test], runtime: false},
-      {:excoveralls, "~> 0.10", only: :test},
-      {:ex_doc, "~> 0.19", only: :dev, runtime: false}
+      {:dialyxir, "~> 0.5", only: [:dev, :test], runtime: false},
+      {:ex_doc, "~> 0.19", only: :dev, runtime: false},
+      {:excoveralls, "~> 0.10", only: :test}
     ]
   end
 
@@ -43,6 +45,12 @@ defmodule WannabeBool.MixProject do
     """
     If Atom, BitString, Integer and Float values wanna be a boolean value, they can using to_boolean/1 function.
     """
+  end
+
+  defp dialyzer do
+    [
+      ignore_warnings: "dialyzer.ignore"
+    ]
   end
 
   defp package do
