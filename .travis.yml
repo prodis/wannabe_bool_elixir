@@ -6,15 +6,14 @@ cache:
     - ~/.mix
     - _build
 
-elixir:
-  - 1.7.4
-  - 1.8.2
-  - 1.9.1
-
-otp_release:
-  - 20.3
-  - 21.1
-  - 22.0.7
+matrix:
+  include:
+    - elixir: 1.9
+      otp_release: 22.0
+    - elixir: 1.8
+      otp_release: 21.3
+    - elixir: 1.7
+      otp_release: 21.3
 
 env:
   global:
