@@ -52,7 +52,7 @@ defmodule WannabeBool.MixProject do
 
   defp dialyzer do
     [
-      ignore_warnings: "dialyzer.ignore"
+      plt_file: {:no_warn, "priv/plts/dialyzer.plt"}
     ]
   end
 
