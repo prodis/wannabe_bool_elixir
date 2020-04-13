@@ -2,6 +2,8 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+### Fixed
+- Remove unnecessary files from the package.
 
 ## [0.1.1] - 2020-04-13
 ### Added

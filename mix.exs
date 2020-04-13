@@ -59,6 +59,7 @@ defmodule WannabeBool.MixProject do
 
   defp package do
     [
+      files: ~w(lib mix.exs README.md CHANGELOG.md LICENSE),
       maintainers: ["Fernando Hamasaki de Amorim"],
       licenses: ["Apache 2.0"],
       links: %{"GitHub" => @github_url}
@@ -68,7 +69,7 @@ defmodule WannabeBool.MixProject do
   defp docs() do
     [
       main: "readme",
-      extras: ["README.md", "CHANGELOG.md"],
+      extras: ~w(README.md CHANGELOG.md),
       source_ref: @version,
       source_url: @github_url,
       canonical: "http://hexdocs.pm/wannabe_bool"
