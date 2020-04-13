@@ -35,6 +35,7 @@ cache:
     - ~/.hex
     - ~/.mix
     - _build
+    - priv/plts
 
 # Leave only .plt files in build
 before_cache:
