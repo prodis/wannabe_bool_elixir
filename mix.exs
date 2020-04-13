@@ -21,7 +21,8 @@ defmodule WannabeBool.MixProject do
         coveralls: :test,
         "coveralls.detail": :test,
         "coveralls.post": :test,
-        "coveralls.html": :test
+        "coveralls.html": :test,
+        "coveralls.travis": :test
       ]
     ]
   end
@@ -34,10 +35,13 @@ defmodule WannabeBool.MixProject do
 
   defp deps do
     [
-      {:credo, "~> 1.1", only: [:dev, :test], runtime: false},
-      {:dialyxir, "~> 1.0.0-rc.7", only: [:dev, :test], runtime: false},
+      # Development
+      {:credo, "~> 1.3", only: :dev, runtime: false},
+      {:dialyxir, "~> 1.0.0", only: :dev, runtime: false},
       {:ex_doc, "~> 0.21", only: :dev, runtime: false},
-      {:excoveralls, "~> 0.11", only: :test}
+
+      # Test
+      {:excoveralls, "~> 0.12", only: :test}
     ]
   end
 
@@ -49,7 +53,7 @@ defmodule WannabeBool.MixProject do
 
   defp dialyzer do
     [
-      ignore_warnings: "dialyzer.ignore"
+      plt_file: {:no_warn, "priv/plts/dialyzer.plt"}
     ]
   end
 
@@ -65,7 +69,7 @@ defmodule WannabeBool.MixProject do
     [
       main: "readme",
       extras: ["README.md", "CHANGELOG.md"],
-      source_ref: "v#{@version}",
+      source_ref: @version,
       source_url: @github_url,
       canonical: "http://hexdocs.pm/wannabe_bool"
     ]
