@@ -56,5 +56,8 @@ release: ## Bumps the version and creates a new tag
 	  perl -p -i -e "s/${REPO}\/${VERSION}...master/${REPO}\/$$NEW_VERSION...master/g" ${CHANGELOG_FILE} && \
 	  perl -p -i -e "s/...master/...master\\n\[$$NEW_VERSION\]: ${REPO}\/${VERSION}...$$NEW_VERSION/g" ${CHANGELOG_FILE} && \
 	  printf "\t${DIM_COLOR}Recording changes to the repository${DEFAULT_COLOR}\n" && \
+	  git add ${VERSION_FILE} ${README_FILE} ${CHANGELOG_FILE} && \
+	  git commit -m "Bump to version $$NEW_VERSION." > /dev/null && \
 	  printf "\t${DIM_COLOR}Creating release tag${DEFAULT_COLOR}\n" && \
+	  git tag -a -m "" $$NEW_VERSION && \
 	  printf "\n${DEFAULT_COLOR}Review the changes before push them to the repository.\n"
