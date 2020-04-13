@@ -15,7 +15,7 @@ The package can be installed by adding `wannabe_bool` to your list of dependenci
 ```elixir
 def deps do
   [
-    {:wannabe_bool, "~> 0.1.0"}
+    {:wannabe_bool, "~> 0.1.1"}
   ]
 end
 ```
