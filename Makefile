@@ -21,6 +21,25 @@ help: ## Print this help
 	@printf "Wannabe Bool v${VERSION}\n"
 	@awk -F ':|##' '/^[^\t].+?:.*?##/ { printf "${LIGHT_MAGENT_COLOR}%-30s${YELLOW_COLOR} %s\n", $$1, $$NF }' $(MAKEFILE_LIST)
 
+.PHONY: full-test
+full-test: ## Runs Elixir format, Credo, Dialyzer, and unit tests with coverage.
+	@printf "${YELLOW_COLOR}--------------------------------------------\n"
+	@printf "Elixir format\n"
+	@printf "${YELLOW_COLOR}--------------------------------------------${DEFAULT_COLOR}\n"
+	mix format --check-formatted
+	@printf "\n${YELLOW_COLOR}--------------------------------------------\n"
+	@printf "Credo\n"
+	@printf "${YELLOW_COLOR}--------------------------------------------${DEFAULT_COLOR}\n"
+	mix credo --strict
+	@printf "${YELLOW_COLOR}--------------------------------------------\n"
+	@printf "Dialyzer\n"
+	@printf "${YELLOW_COLOR}--------------------------------------------${DEFAULT_COLOR}\n"
+	mix dialyzer
+	@printf "\n${YELLOW_COLOR}--------------------------------------------\n"
+	@printf "Unit tests\n"
+	@printf "${YELLOW_COLOR}--------------------------------------------${DEFAULT_COLOR}\n"
+	mix test --cover --trace
+
 .PHONY: release
 release: ## Bumps the version and creates a new tag
 	@printf "${LIGHT_MAGENT_COLOR}The current version is:${YELLOW_COLOR} ${VERSION}${DEFAULT_COLOR}\n" && \
