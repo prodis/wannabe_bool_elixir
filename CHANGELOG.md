@@ -19,7 +19,7 @@ All notable changes to this project will be documented in this file.
 ### Added
 - Initial release.
 
-[Unreleased]: https://github.com/prodis/wannabe_bool_elixir/compare/v0.1.0...master
+[Unreleased]: https://github.com/prodis/wannabe_bool_elixir/compare/0.1.2...master
 [0.1.2]: https://github.com/prodis/wannabe_bool_elixir/compare/0.1.1...0.1.2
 [0.1.1]: https://github.com/prodis/wannabe_bool_elixir/compare/0.1.0...0.1.1
 [0.1.0]: https://github.com/prodis/wannabe_bool_elixir/compare/a63ca...v0.1.0
