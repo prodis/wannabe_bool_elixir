@@ -208,6 +208,8 @@ See the [contributing guide](https://github.com/prodis/wannabe_bool_elixir/blob/
 
 Wannabe Bool is released under the Apache 2.0 License. See the [LICENSE](https://github.com/prodis/wannabe_bool_elixir/blob/master/LICENSE) file.
 
+Copyright © 2018-2020 Fernando Hamasaki de Amorim
+
 ## Author
 
 [Fernando Hamasaki de Amorim (prodis)](https://github.com/prodis)

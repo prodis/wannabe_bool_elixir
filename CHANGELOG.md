@@ -2,6 +2,11 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+### Added
+- `make full-test` command.
+
+### Changed
+- Update Travis configuration.
 
 ## [0.1.2] - 2020-04-13
 ### Fixed
