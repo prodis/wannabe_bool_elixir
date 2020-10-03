@@ -1,42 +1,34 @@
 defmodule WannabeBool.MixProject do
   use Mix.Project
 
+  @app :wannabe_bool
+  @name "Wannabe Bool"
+  @repo "https://github.com/prodis/wannabe_bool_elixir"
   @version "0.1.2"
-  @github_url "https://github.com/prodis/wannabe_bool_elixir"
 
   def project do
     [
-      app: :wannabe_bool,
-      name: "Wannabe Bool",
+      app: @app,
+      name: @name,
       version: @version,
       elixir: "~> 1.7",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
-      dialyzer: dialyzer(),
       description: description(),
-      package: package(),
+      dialyzer: dialyzer(),
       docs: docs(),
-      test_coverage: [tool: ExCoveralls],
-      preferred_cli_env: [
-        coveralls: :test,
-        "coveralls.detail": :test,
-        "coveralls.post": :test,
-        "coveralls.html": :test,
-        "coveralls.travis": :test
-      ]
+      package: package(),
+      preferred_cli_env: preferred_cli_env(),
+      test_coverage: [tool: ExCoveralls]
     ]
   end
 
-  def application do
-    [
-      extra_applications: [:logger]
-    ]
-  end
+  def application, do: []
 
   defp deps do
     [
       # Development
-      {:credo, "~> 1.3", only: :dev, runtime: false},
+      {:credo, "~> 1.4", only: :dev, runtime: false},
       {:dialyxir, "~> 1.0.0", only: :dev, runtime: false},
       {:ex_doc, "~> 0.21", only: :dev, runtime: false},
 
@@ -57,22 +49,32 @@ defmodule WannabeBool.MixProject do
     ]
   end
 
-  defp package do
-    [
-      files: ~w(lib mix.exs README.md CHANGELOG.md LICENSE),
-      maintainers: ["Fernando Hamasaki de Amorim"],
-      licenses: ["Apache 2.0"],
-      links: %{"GitHub" => @github_url}
-    ]
-  end
-
   defp docs() do
     [
       main: "readme",
       extras: ~w(README.md CHANGELOG.md),
       source_ref: @version,
-      source_url: @github_url,
+      source_url: @repo,
       canonical: "http://hexdocs.pm/wannabe_bool"
+    ]
+  end
+
+  defp package do
+    [
+      files: ~w(lib mix.exs README.md CHANGELOG.md LICENSE),
+      maintainers: ["Fernando Hamasaki de Amorim"],
+      licenses: ["Apache 2.0"],
+      links: %{"GitHub" => @repo}
+    ]
+  end
+
+  defp preferred_cli_env do
+    [
+      coveralls: :test,
+      "coveralls.detail": :test,
+      "coveralls.post": :test,
+      "coveralls.html": :test,
+      "coveralls.travis": :test
     ]
   end
 end
