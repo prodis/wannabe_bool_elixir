@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file.
 
 ### Changed
 - Update Travis configuration.
+- Update development and test dependencies.
 
 ## [0.1.2] - 2020-04-13
 ### Fixed
