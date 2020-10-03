@@ -14,26 +14,16 @@ defmodule WannabeBool.MixProject do
       elixir: "~> 1.7",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
-      dialyzer: dialyzer(),
       description: description(),
-      package: package(),
+      dialyzer: dialyzer(),
       docs: docs(),
-      test_coverage: [tool: ExCoveralls],
-      preferred_cli_env: [
-        coveralls: :test,
-        "coveralls.detail": :test,
-        "coveralls.post": :test,
-        "coveralls.html": :test,
-        "coveralls.travis": :test
-      ]
+      package: package(),
+      preferred_cli_env: preferred_cli_env(),
+      test_coverage: [tool: ExCoveralls]
     ]
   end
 
-  def application do
-    [
-      extra_applications: [:logger]
-    ]
-  end
+  def application, do: []
 
   defp deps do
     [
@@ -59,6 +49,16 @@ defmodule WannabeBool.MixProject do
     ]
   end
 
+  defp docs() do
+    [
+      main: "readme",
+      extras: ~w(README.md CHANGELOG.md),
+      source_ref: @version,
+      source_url: @repo,
+      canonical: "http://hexdocs.pm/wannabe_bool"
+    ]
+  end
+
   defp package do
     [
       files: ~w(lib mix.exs README.md CHANGELOG.md LICENSE),
@@ -68,13 +68,13 @@ defmodule WannabeBool.MixProject do
     ]
   end
 
-  defp docs() do
+  defp preferred_cli_env do
     [
-      main: "readme",
-      extras: ~w(README.md CHANGELOG.md),
-      source_ref: @version,
-      source_url: @repo,
-      canonical: "http://hexdocs.pm/wannabe_bool"
+      coveralls: :test,
+      "coveralls.detail": :test,
+      "coveralls.post": :test,
+      "coveralls.html": :test,
+      "coveralls.travis": :test
     ]
   end
 end
