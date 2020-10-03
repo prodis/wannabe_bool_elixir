@@ -6,14 +6,18 @@ elixir:
   - 1.8
   - 1.7
 otp_release:
-  - 20.0
-  - 21.0
+  - 23.0
   - 22.0
+  - 21.0
 
 jobs:
   exclude:
-    - elixir: 1.10
-      otp_release: 20.0
+    - elixir: 1.9
+      otp_release: 23.0
+    - elixir: 1.8
+      otp_release: 23.0
+    - elixir: 1.7
+      otp_release: 23.0
 
 install:
   - mix local.hex --force
@@ -31,14 +35,14 @@ script:
   - mix test
   - mix coveralls.travis --trace
 
+# Leave only .plt files in build
+before_cache:
+  - mix deps.clean --all --build
+  - mix clean --build
+
 cache:
   directories:
     - ~/.hex
     - ~/.mix
     - _build
     - priv/plts
-
-# Leave only .plt files in build
-before_cache:
-  - mix deps.clean --all --build
-  - mix clean --build
