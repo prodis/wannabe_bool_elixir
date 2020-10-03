@@ -25,6 +25,3 @@ wannabe_bool-*.tar
 # Dialyzer
 /priv/plts/*.plt
 /priv/plts/*.plt.hash
-
-# Vim files
-*.sw*
