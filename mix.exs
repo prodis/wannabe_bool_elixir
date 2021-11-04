@@ -4,7 +4,7 @@ defmodule WannabeBool.MixProject do
   @app :wannabe_bool
   @name "Wannabe Bool"
   @repo "https://github.com/prodis/wannabe_bool_elixir"
-  @version "0.1.2"
+  @version "0.1.3"
 
   def project do
     [
